@@ -1,0 +1,517 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57E8D55C-92FB-42B4-A0E2-5A34D0C5E684}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>duomenų_bazės_projektas</RootNamespace>
+    <AssemblyName>duomenų bazės projektas</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
+      <HintPath>..\packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
+    </Reference>
+    <Reference Include="Devart.Data, Version=5.0.3075.0, Culture=neutral, PublicKeyToken=09af7300eec23701" />
+    <Reference Include="Devart.Data.MySql, Version=9.1.134.0, Culture=neutral, PublicKeyToken=09af7300eec23701, processorArchitecture=MSIL" />
+    <Reference Include="Google.Protobuf, Version=3.21.9.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
+      <HintPath>..\packages\Google.Protobuf.3.21.9\lib\net45\Google.Protobuf.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.1.2.6\lib\net46\K4os.Compression.LZ4.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Compression.LZ4.Streams, Version=1.2.6.0, Culture=neutral, PublicKeyToken=2186fa9121ef231d, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Compression.LZ4.Streams.1.2.6\lib\net46\K4os.Compression.LZ4.Streams.dll</HintPath>
+    </Reference>
+    <Reference Include="K4os.Hash.xxHash, Version=1.0.6.0, Culture=neutral, PublicKeyToken=32cd54395057cec3, processorArchitecture=MSIL">
+      <HintPath>..\packages\K4os.Hash.xxHash.1.0.6\lib\net46\K4os.Hash.xxHash.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=8.0.32.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>..\packages\MySql.Data.8.0.32.1\lib\net452\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="NuGet.Frameworks, Version=6.5.0.154, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\NuGet.Frameworks.6.5.0\lib\net472\NuGet.Frameworks.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SqlClient, Version=4.6.1.5, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.SqlClient.4.8.5\lib\net461\System.Data.SqlClient.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Management" />
+    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Administratorius.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Administratorius.Designer.cs">
+      <DependentUpon>Administratorius.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="KurejaiAdm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KurejaiAdm.Designer.cs">
+      <DependentUpon>KurejaiAdm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kurejaisvetaine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Kurejaisvetaine.Designer.cs">
+      <DependentUpon>Kurejaisvetaine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KurejasMeniu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KurejasMeniu.Designer.cs">
+      <DependentUpon>KurejasMeniu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Leidejaisvetaine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Leidejaisvetaine.Designer.cs">
+      <DependentUpon>Leidejaisvetaine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LeidejoMeniu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LeidejoMeniu.Designer.cs">
+      <DependentUpon>LeidejoMeniu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PatvirtintiForma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PatvirtintiForma.Designer.cs">
+      <DependentUpon>PatvirtintiForma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Pirkti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pirkti.Designer.cs">
+      <DependentUpon>Pirkti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet13.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet13.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet6.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet6.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="praktinis2DataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>praktinis2DataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RegistracijaKUR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistracijaKUR.Designer.cs">
+      <DependentUpon>RegistracijaKUR.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RegistracijaLEID.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RegistracijaLEID.Designer.cs">
+      <DependentUpon>RegistracijaLEID.cs</DependentUpon>
+    </Compile>
+    <Compile Include="naudotojaiAdmForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="naudotojaiAdmForm.Designer.cs">
+      <DependentUpon>naudotojaiAdmForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Susisiektisvetaine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Susisiektisvetaine.Designer.cs">
+      <DependentUpon>Susisiektisvetaine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Svetaine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Svetaine.Designer.cs">
+      <DependentUpon>Svetaine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zaidimai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zaidimai.Designer.cs">
+      <DependentUpon>Zaidimai.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zaidimaisvetaine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zaidimaisvetaine.Designer.cs">
+      <DependentUpon>Zaidimaisvetaine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zaidimokelimas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zaidimokelimas.Designer.cs">
+      <DependentUpon>Zaidimokelimas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zaidimostatusas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zaidimostatusas.Designer.cs">
+      <DependentUpon>Zaidimostatusas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Zinutes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Zinutes.Designer.cs">
+      <DependentUpon>Zinutes.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Administratorius.resx">
+      <DependentUpon>Administratorius.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KurejaiAdm.resx">
+      <DependentUpon>KurejaiAdm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kurejaisvetaine.resx">
+      <DependentUpon>Kurejaisvetaine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KurejasMeniu.resx">
+      <DependentUpon>KurejasMeniu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Leidejaisvetaine.resx">
+      <DependentUpon>Leidejaisvetaine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LeidejoMeniu.resx">
+      <DependentUpon>LeidejoMeniu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pirkti.resx">
+      <DependentUpon>Pirkti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="RegistracijaKUR.resx">
+      <DependentUpon>RegistracijaKUR.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RegistracijaLEID.resx">
+      <DependentUpon>RegistracijaLEID.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="naudotojaiAdmForm.resx">
+      <DependentUpon>naudotojaiAdmForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Susisiektisvetaine.resx">
+      <DependentUpon>Susisiektisvetaine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Svetaine.resx">
+      <DependentUpon>Svetaine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zaidimai.resx">
+      <DependentUpon>Zaidimai.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zaidimaisvetaine.resx">
+      <DependentUpon>Zaidimaisvetaine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zaidimokelimas.resx">
+      <DependentUpon>Zaidimokelimas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zaidimostatusas.resx">
+      <DependentUpon>Zaidimostatusas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Zinutes.resx">
+      <DependentUpon>Zinutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="praktinis2DataSet.xsc">
+      <DependentUpon>praktinis2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet.xss">
+      <DependentUpon>praktinis2DataSet.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet1.xsc">
+      <DependentUpon>praktinis2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet1.xss">
+      <DependentUpon>praktinis2DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet10.xsc">
+      <DependentUpon>praktinis2DataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet10.xss">
+      <DependentUpon>praktinis2DataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet11.xsc">
+      <DependentUpon>praktinis2DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet11.xss">
+      <DependentUpon>praktinis2DataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet12.xsc">
+      <DependentUpon>praktinis2DataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet12.xss">
+      <DependentUpon>praktinis2DataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet13.xsc">
+      <DependentUpon>praktinis2DataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet13.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet13.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet13.xss">
+      <DependentUpon>praktinis2DataSet13.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet2.xsc">
+      <DependentUpon>praktinis2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet2.xss">
+      <DependentUpon>praktinis2DataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet3.xsc">
+      <DependentUpon>praktinis2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet3.xss">
+      <DependentUpon>praktinis2DataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet4.xsc">
+      <DependentUpon>praktinis2DataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet4.xss">
+      <DependentUpon>praktinis2DataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet5.xsc">
+      <DependentUpon>praktinis2DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet5.xss">
+      <DependentUpon>praktinis2DataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet6.xsc">
+      <DependentUpon>praktinis2DataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet6.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet6.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet6.xss">
+      <DependentUpon>praktinis2DataSet6.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet7.xsc">
+      <DependentUpon>praktinis2DataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet7.xss">
+      <DependentUpon>praktinis2DataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet8.xsc">
+      <DependentUpon>praktinis2DataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet8.xss">
+      <DependentUpon>praktinis2DataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet9.xsc">
+      <DependentUpon>praktinis2DataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="praktinis2DataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>praktinis2DataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="praktinis2DataSet9.xss">
+      <DependentUpon>praktinis2DataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\login.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
