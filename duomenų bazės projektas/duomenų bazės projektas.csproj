@@ -137,18 +137,6 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
-    <Compile Include="PatvirtintiForma.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="PatvirtintiForma.Designer.cs">
-      <DependentUpon>PatvirtintiForma.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Pirkti.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Pirkti.Designer.cs">
-      <DependentUpon>Pirkti.cs</DependentUpon>
-    </Compile>
     <Compile Include="praktinis2DataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -301,9 +289,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Pirkti.resx">
-      <DependentUpon>Pirkti.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

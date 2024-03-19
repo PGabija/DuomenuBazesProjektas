@@ -53,7 +53,6 @@ namespace duomenų_bazės_projektas
             form2.Show();
             this.Hide();
         }
-
         public void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 

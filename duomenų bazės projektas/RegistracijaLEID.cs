@@ -7,7 +7,6 @@ namespace duomenų_bazės_projektas
     public partial class RegistracijaLEID : Form
         
     {
-
         public void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
@@ -15,8 +14,7 @@ namespace duomenų_bazės_projektas
                 System.Windows.Forms.Application.Exit();
             }
         }
-
-
+        
         string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
         public RegistracijaLEID()
         {
@@ -44,7 +42,6 @@ namespace duomenų_bazės_projektas
                     try
                     {
                         mySqlConnection.Open();
-
                         MySqlCommand cmd1 = new MySqlCommand("INSERT INTO leidejas (Vardas, Pavarde, Imone, Telefonas, `El pastas`, Prisijungimo_vardas, Slaptazodis) VALUES (@vardas, @pavarde, @imone, @telefonas, @el_pastas, @prisijungimo_vardas, @slaptazodis)", mySqlConnection);
                         cmd1.Parameters.AddWithValue("@vardas", textBox1.Text);
                         cmd1.Parameters.AddWithValue("@pavarde", textBox2.Text);
@@ -63,6 +60,7 @@ namespace duomenų_bazės_projektas
                         form.Show();
                         this.Hide();
                     }
+                    
                     catch (Exception ex)
                     {
                         MessageBox.Show("Klaida įrašant duomenis į duomenų bazę: " + ex.Message, "Klaida", MessageBoxButtons.OK, MessageBoxIcon.Error);

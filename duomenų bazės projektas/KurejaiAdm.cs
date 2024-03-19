@@ -1,12 +1,6 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace duomenų_bazės_projektas
@@ -26,14 +20,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT kurejoID, vardas, pavarde, imone, prisijungimo_vardas, slaptazodis FROM kurejas";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -69,19 +60,16 @@ namespace duomenų_bazės_projektas
                 {
                     int kurejoID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["kurejoID"].Value);
 
-
                     string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
                     MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
 
                     try
                     {
                         mySqlConnection.Open();
-
                         string query = "DELETE FROM kurejas WHERE kurejoID = @kurejoID";
                         MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
                         cmd.Parameters.AddWithValue("@kurejoID", kurejoID);
                         cmd.ExecuteNonQuery();
-
                         dataGridView1.Rows.RemoveAt(selectedIndex);
 
                         MessageBox.Show("Eilutė ištrinta sėkmingai.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -110,12 +98,9 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 DataTable dataTable = (DataTable)dataGridView1.DataSource;
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = new MySqlCommand("SELECT * FROM kurejas", mySqlConnection);
-
                 MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
                 adapter.Update(dataTable);
 
@@ -140,7 +125,6 @@ namespace duomenų_bazės_projektas
             {
                 DataView dataView = dataTable.DefaultView;
                 dataView.RowFilter = string.Format("vardas LIKE '%{0}%' OR pavarde LIKE '%{0}%' OR imone LIKE '%{0}%'", searchValue);
-
                 dataGridView1.DataSource = dataView;
             }
             else
@@ -149,4 +133,4 @@ namespace duomenų_bazės_projektas
             }
         }
     }
-    }
+}

@@ -20,14 +20,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT zaidimoID, pavadinimas, aprasymas, platforma, `isleidimo data`, zanras, ivertinimas, statusas, kurejoid FROM zaidimas";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -56,15 +53,13 @@ namespace duomenų_bazės_projektas
             {
                 DataView dataView = dataTable.DefaultView;
                 dataView.RowFilter = string.Format("pavadinimas LIKE '%{0}%' OR platforma LIKE '%{0}%' OR zanras LIKE '%{0}%'", searchValue);
-
                 dataGridView1.DataSource = dataView;
             }
             else
             {
                 dataGridView1.DataSource = dataTable;
             }
-        
-    }
+        }
 
         public void btnDelete_Click(object sender, EventArgs e)
         {
@@ -77,19 +72,16 @@ namespace duomenų_bazės_projektas
                 {
                     int zaidimoID = Convert.ToInt32(dataGridView1.SelectedRows[0].Cells["zaidimoID"].Value);
 
-
                     string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
                     MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
 
                     try
                     {
                         mySqlConnection.Open();
-
                         string query = "DELETE FROM zaidimas WHERE ZaidimoID = @zaidimoID";
                         MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
                         cmd.Parameters.AddWithValue("@zaidimoID", zaidimoID);
                         cmd.ExecuteNonQuery();
-
                         dataGridView1.Rows.RemoveAt(selectedIndex);
 
                         MessageBox.Show("Eilutė ištrinta sėkmingai.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -109,7 +101,6 @@ namespace duomenų_bazės_projektas
                 MessageBox.Show("Pasirinkite eilutę, kurią norite ištrinti.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
-
         public void btnSave_Click(object sender, EventArgs e)
         {
             string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
@@ -118,12 +109,9 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 DataTable dataTable = (DataTable)dataGridView1.DataSource;
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
                 adapter.SelectCommand = new MySqlCommand("SELECT * FROM zaidimas", mySqlConnection);
-
                 MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
                 adapter.Update(dataTable);
 

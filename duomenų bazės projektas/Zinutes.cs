@@ -11,7 +11,6 @@ namespace duomenų_bazės_projektas
         {
             InitializeComponent();
         }
-
         public void Zinutes_Load(object sender, EventArgs e)
         {
             string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
@@ -20,14 +19,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT zinutesId, vardas, pavarde, `El. pastas`, zinute FROM zinutes";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -57,7 +53,6 @@ namespace duomenų_bazės_projektas
                 {
                     DataView dataView = dataTable.DefaultView;
                     dataView.RowFilter = string.Format("statusas LIKE '%{0}%'", searchValue);
-
                     dataGridView1.DataSource = dataView;
                 }
                 else
@@ -80,14 +75,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT zinutesId, vardas, pavarde, `El. pastas`, zinute FROM zinutes";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)

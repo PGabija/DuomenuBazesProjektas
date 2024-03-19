@@ -49,16 +49,5 @@ namespace duomenų_bazės_projektas
         {
 
         }
-        public void Svetaine_FormClosing (object sender, FormClosingEventArgs e)
-        {
-            Application.Exit();
-        }
-
-        public void button6_Click(object sender, EventArgs e)
-        {
-            Pirkti form = new Pirkti();
-            form.Show();
-            this.Hide();
-        }
     }
 }

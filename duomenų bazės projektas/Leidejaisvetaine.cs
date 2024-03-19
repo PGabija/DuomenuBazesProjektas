@@ -27,14 +27,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT vardas, pavarde, imone, svetaine FROM leidejas";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -56,7 +53,6 @@ namespace duomenų_bazės_projektas
             {
                 DataView dataView = dataTable.DefaultView;
                 dataView.RowFilter = string.Format("vardas LIKE '%{0}%' OR pavarde LIKE '%{0}%' OR imone LIKE '%{0}%'", searchValue);
-
                 dataGridView1.DataSource = dataView;
             }
             else
@@ -78,14 +74,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT vardas, pavarde, imone, svetaine FROM leidejas";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -100,4 +93,3 @@ namespace duomenų_bazės_projektas
         }
     }
 }
-

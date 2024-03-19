@@ -12,7 +12,6 @@ namespace duomenų_bazės_projektas
             InitializeComponent();
         }
 
-
         public void LeidejoMeniu_Load(object sender, EventArgs e)
         {
             {
@@ -22,14 +21,11 @@ namespace duomenų_bazės_projektas
                 try
                 {
                     mySqlConnection.Open();
-
                     string query = "SELECT zaidimoId, pavadinimas, aprasymas, platforma, `isleidimo data`, zanras, ivertinimas, statusas, kurejoid FROM zaidimas";
                     MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                     MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                     DataTable dataTable = new DataTable();
                     adapter.Fill(dataTable);
-
                     dataGridView1.DataSource = dataTable;
                 }
                 catch (Exception ex)
@@ -54,19 +50,16 @@ namespace duomenų_bazės_projektas
         public void btnSave_Click(object sender, EventArgs e)
         {
             string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
-        MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
+            MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
 
             try
             {
                 mySqlConnection.Open();
-
                 DataTable dataTable = (DataTable)dataGridView1.DataSource;
-
-        MySqlDataAdapter adapter = new MySqlDataAdapter();
-        adapter.SelectCommand = new MySqlCommand("SELECT * FROM zaidimas", mySqlConnection);
-
-        MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
-        adapter.Update(dataTable);
+                MySqlDataAdapter adapter = new MySqlDataAdapter();
+                adapter.SelectCommand = new MySqlCommand("SELECT * FROM zaidimas", mySqlConnection);
+                MySqlCommandBuilder builder = new MySqlCommandBuilder(adapter);
+                adapter.Update(dataTable);
 
                 MessageBox.Show("Duomenys išsaugoti sėkmingai.", "Informacija", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -75,14 +68,13 @@ namespace duomenų_bazės_projektas
                 MessageBox.Show("Klaida įrašant duomenis į duomenų bazę: " + ex.Message, "Klaida", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             finally
-{
-    mySqlConnection.Close();
-}
+            {
+                mySqlConnection.Close();
+            }
         }
 
         public void buttonSearch_Click(object sender, EventArgs e)
         {
-
             DataTable dataTable = (DataTable)dataGridView1.DataSource;
             string searchValue = textBox1.Text.Trim();
 
@@ -90,7 +82,6 @@ namespace duomenų_bazės_projektas
             {
                 DataView dataView = dataTable.DefaultView;
                 dataView.RowFilter = string.Format("Statusas LIKE '%{0}%'", searchValue);
-
                 dataGridView1.DataSource = dataView;
             }
             else
@@ -98,7 +89,6 @@ namespace duomenų_bazės_projektas
                 dataGridView1.DataSource = dataTable;
             }
         }
-
 
         public void button2_Click(object sender, EventArgs e)
         {
@@ -108,10 +98,8 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT zaidimoId, pavadinimas, aprasymas, platforma, `isleidimo data`, zanras, ivertinimas, statusas, kurejoid, kaina FROM zaidimas";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);

@@ -17,7 +17,6 @@ namespace duomenų_bazės_projektas
             string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
             MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
             String username, user_password;
-
             username = PrisijungimoVardas.Text;
             user_password = Slaptazodis.Text;
       
@@ -55,12 +54,6 @@ namespace duomenų_bazės_projektas
                 mySqlConnection.Close();
             }
         }
-        public void IsvalytiMygt_Click(object sender, EventArgs e)
-        {
-            PrisijungimoVardas.Clear();
-            Slaptazodis.Clear();
-            PrisijungimoVardas.Focus();
-        }
 
         public void PrisijungtiMygtAdm_Click(object sender, EventArgs e)
         {
@@ -78,8 +71,6 @@ namespace duomenų_bazės_projektas
                 PrisijungimoVardasAdm.Focus();
             }
         }
-
-
 
         public void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
@@ -116,8 +107,6 @@ namespace duomenų_bazės_projektas
                 SlaptazodisAdm.PasswordChar = '\0';
             }
         }
-
-
         public void RegLEID_Click(object sender, EventArgs e)
         {
             RegistracijaLEID form7 = new RegistracijaLEID();
@@ -134,7 +123,6 @@ namespace duomenų_bazės_projektas
         public int PatikrintiPrisijungima(string username, string password)
         {
             int kurejoId = -1;
-
             string mysqlCon = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
             MySqlConnection mySqlConnection = new MySqlConnection(mysqlCon);
 
@@ -162,7 +150,6 @@ namespace duomenų_bazės_projektas
 
             return kurejoId;
         }
-
 
         public void PrisijungtiMygtKur_Click(object sender, EventArgs e)
         {

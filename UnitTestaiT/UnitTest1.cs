@@ -434,7 +434,7 @@ namespace UnitTestaiT
 
             // Assert
             Assert.IsNotNull(form.dataGridView1.DataSource);
-            Assert.AreEqual(form.dataGridView1.RowCount, 9);
+            Assert.AreEqual(form.dataGridView1.RowCount, 12);
 
         }
 

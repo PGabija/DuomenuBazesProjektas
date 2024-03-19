@@ -24,7 +24,7 @@ namespace duomenų_bazės_projektas
 
         public void button1_Click_1(object sender, EventArgs e)
         {
-          string connectionString = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
+            string connectionString = "server=127.0.0.1; user=root; database=praktinis2; password=admin";
             string pavadinimas = textBox1.Text;
             string aprasymas = textBox3.Text;
             string platforma = textBox2.Text;

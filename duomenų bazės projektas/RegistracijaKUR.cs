@@ -34,7 +34,6 @@ namespace duomenų_bazės_projektas
                     try
                     {
                         mySqlConnection.Open();
-
                         MySqlCommand cmd1 = new MySqlCommand("INSERT INTO kurejas (Vardas, Pavarde, Imone, Prisijungimo_vardas, Slaptazodis) VALUES (@vardas, @pavarde, @imone, @prisijungimo_vardas, @slaptazodis)", mySqlConnection);
                         cmd1.Parameters.AddWithValue("@vardas", textBox1.Text);
                         cmd1.Parameters.AddWithValue("@pavarde", textBox2.Text);

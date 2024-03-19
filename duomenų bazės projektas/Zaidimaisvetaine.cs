@@ -30,11 +30,9 @@ namespace duomenų_bazės_projektas
 
                 string query = "SELECT pavadinimas, aprasymas, platforma, `isleidimo data`, zanras, ivertinimas FROM zaidimas WHERE statusas = 'Patvirtinta'";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
@@ -56,7 +54,6 @@ namespace duomenų_bazės_projektas
             {
                 DataView dataView = dataTable.DefaultView;
                 dataView.RowFilter = string.Format("pavadinimas LIKE '%{0}%' OR zanras LIKE '%{0}%' OR ivertinimas LIKE '%{0}%' OR platforma LIKE '%{0}%'", searchValue);
-
                 dataGridView1.DataSource = dataView;
             }
             else
@@ -78,14 +75,11 @@ namespace duomenų_bazės_projektas
             try
             {
                 mySqlConnection.Open();
-
                 string query = "SELECT pavadinimas, aprasymas, platforma, `isleidimo data`, zanras, ivertinimas, kaina FROM zaidimas WHERE statusas = 'Patvirtinta'";
                 MySqlCommand cmd = new MySqlCommand(query, mySqlConnection);
-
                 MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
                 DataTable dataTable = new DataTable();
                 adapter.Fill(dataTable);
-
                 dataGridView1.DataSource = dataTable;
             }
             catch (Exception ex)
